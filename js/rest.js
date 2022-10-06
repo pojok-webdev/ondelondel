@@ -1,11 +1,8 @@
+ondel = require('./setting')
 auth = callback => {
     var axios = require('axios');
     var data = JSON.stringify({
-    "params": {
-        "login": "apipadi@gmail.com",
-        "password": "Totol1nk",
-        "db": "padish"
-    }
+    "params": ondel
     });
 
     var config = {
