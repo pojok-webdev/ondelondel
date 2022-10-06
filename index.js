@@ -27,6 +27,14 @@ i.app.get('/getsubscriptions/:session_id',(req,res)=>{
         res.send({'objs':objs})
     })
 })
+i.app.get('/getlocations/:session_id',(req,res)=>{
+    i.rest.location({
+        session_id:req.params.session_id
+    },objs=>{
+        console.log('Locations ',objs)
+        res.send({'objs':objs})
+    })
+})
 i.app.listen('20224',_=>{
     console.log('Application run at port 20224')
 })

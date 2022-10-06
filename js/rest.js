@@ -4,16 +4,14 @@ auth = callback => {
     var data = JSON.stringify({
     "params": ondel
     });
-
     var config = {
-    method: 'post',
-    url: 'https://demo.kapesolusi.work/auth',
-    headers: { 
-        'Content-Type': 'application/json', 
-    },
-    data : data
+        method: 'post',
+        url: 'https://demo.kapesolusi.work/auth',
+        headers: { 
+            'Content-Type': 'application/json', 
+        },
+        data : data
     };
-
     axios(config)
     .then(function (response) {
         console.log('CooKieS',response)
@@ -35,7 +33,6 @@ subscription = (obj,callback) => {
             'Cookie':'session_id='+obj.session_id
         }
     };
-
     axios(config)
     .then(function (response) {
         console.log('Hehehe',JSON.stringify(response.data));
@@ -45,9 +42,30 @@ subscription = (obj,callback) => {
         return error
         console.log('ERROR',error);
     });
+}
+location = (obj,callback) => {
+    console.log('OBJ',obj)
+    var axios = require('axios');
+    var config = {
+    method: 'get',
+    url: 'https://demo.kapesolusi.work/api/site.location?query={id,site_location_line{code,pic,phone}}',
+    headers: { 
+        'Cookie': 'session_id='+obj.session_id
+    }
+    };
+
+    axios(config)
+    .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        callback(JSON.stringify(response.data))
+    })
+    .catch(function (error) {
+    console.log(error);
+    });
 
 }
 module.exports = {
     auth:auth,
-    subscription:subscription
+    subscription:subscription,
+    location:location
 }
