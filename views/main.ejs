@@ -7,5 +7,17 @@
         <a href="/getsubscriptions/<%- session_id %>">Subscription</a>
         <br>
         <a href="/getlocations/<%- session_id %>">Location</a>
+        <a href="/getkelurahan/<%- session_id %>">Kelurahan</a>
+        <a href="/getstates/<%- session_id %>">Propinsi</a>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td>Kecamantan</td>
+                    <td><a href="http://localhost:20224/datatableskecamatans">table</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <textarea name="obj" id="obj" cols="30" rows="10"><%- JSON.stringify(obj) %></textarea>
     </body>
 </html>

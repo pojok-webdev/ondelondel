@@ -10,7 +10,9 @@ app = new express
 app = new express()
 app.set('views','./views')
 app.set('view engine','ejs')
-app.use(express.static(__dirname + '/..'));
+app.use(express.static(__dirname + '/'));
+
+//app.use(express.static(__dirname + '/..'));
 app.use(bodyParser.json({'limit':'10mb',extended:true}))
 app.use(bodyParser.urlencoded({'limit':'10mb',extended:true}))
 app.use(cookieParser())
